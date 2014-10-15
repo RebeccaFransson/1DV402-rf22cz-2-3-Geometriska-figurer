@@ -55,7 +55,11 @@ namespace Gemometriskafigurer
 
         private static Shape CreateShape(ShapeType shapeType) //läser in objektets längd och bredd
         {
-            //ReadDoubleGraterThanZero();
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine(" ╔═══════════════════════════════════╗ ");
+            Console.WriteLine(" ║            {0,10}             ║ ",shapeType);
+            Console.WriteLine(" ╚═══════════════════════════════════╝ ");
+            Console.ResetColor();
             double width = ReadDoubleGraterThanZero("Skriv in bredden:"); //anropar ReadGreaterThanZero med en string, där kollar den metoden så att värderna stämmer
             double length = ReadDoubleGraterThanZero("Skriv in längden:");
 
@@ -76,6 +80,22 @@ namespace Gemometriskafigurer
 
         private static double ReadDoubleGraterThanZero(string prompt)
         {
+            //int value = 0;
+            //string input = Console.ReadLine();
+            //try
+            //{
+            //    value = int.Parse(input);
+            //    if(value<=0)
+            //    {
+            //        throw new OverflowException();
+            //    }
+            //    break;
+            //}
+            //catch(FormatException)
+            //{
+            //    Console.WriteLine("FEL! {0} kan inte tolkas som ett heltal", input);
+            //}
+
             int input;
 
             do
@@ -85,29 +105,32 @@ namespace Gemometriskafigurer
                 {
                     return input;
                 }
-                
+
             } while (true);
             Console.WriteLine("Tyvärr, ditt tal måste vara större än 0.");
         }
 
         private static void ViewMenu()
         {
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine(" ╔═══════════════════════════════════╗ ");
             Console.WriteLine(" ║          Choose a form            ║ ");
             Console.WriteLine(" ╚═══════════════════════════════════╝ ");
-            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ResetColor();
             Console.WriteLine(" 0. Exit.");
             Console.WriteLine(" 1. Rectangle.");
             Console.WriteLine(" 2. Ellipse.");
-            Console.WriteLine("\n ═══════════════════════════════════════════\n");
-            Console.Write(" Ange menyval [0-2]: ");
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("\n  ════════════════════════════════════ \n");
             Console.ResetColor();
-
+            Console.Write(" Ange menyval [0-2]: ");
+            
         }
 
-       // private void ViewShapeDetail(Shape shape)
-       // {
+        private void ViewShapeDetail(Shape shape)
+        {
+            Console.WriteLine();
 
-       // }
+        }
     }
 }

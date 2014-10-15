@@ -25,18 +25,20 @@ namespace Gemometriskafigurer
                         continue;
 
                     case "1":
-                        CreateShape(ShapeType.Rectangle); //skickar med rectangle till createshape
+                        Shape shapeR = CreateShape(ShapeType.Rectangle); //skapar ett nytt objekt skickar med rectangle till createshape
+                        ViewShapeDetail(shapeR);//skriver ut både Area och Omkrets som finns i Shape-klassen
                         break;
 
                     case "2":
-                        CreateShape(ShapeType.Ellipse);
+                        Shape shapeE = CreateShape(ShapeType.Ellipse);
+                        ViewShapeDetail(shapeE);
                         break;  
                     default:
-                        Console.BackgroundColor = ConsoleColor.Red;
+                        Console.BackgroundColor = ConsoleColor.Red; //felmeddelanden
                         Console.WriteLine("FEL! Välj ett flyttal mellan 0-2.");
                         Console.ResetColor();
                         Console.BackgroundColor = ConsoleColor.DarkBlue;
-                        Console.WriteLine("\n   Tryck tangent för att prova igen   ");
+                        Console.WriteLine("\n   Tryck tangent för att prova igen   "); //prova igen vid tryck av knapp
                         Console.ResetColor();
                         Console.CursorVisible = false;
                         Console.ReadKey(true);
@@ -44,12 +46,17 @@ namespace Gemometriskafigurer
                         Console.CursorVisible = true;
                     continue;
 
-                }
                     
+                }
+                Console.BackgroundColor = ConsoleColor.DarkBlue;
+                Console.WriteLine("\n   Tryck tangent för att prova igen   "); //prova igen vid tryck av knapp
+                Console.ResetColor();
+                Console.CursorVisible = false;
+                Console.ReadKey(true);
+                Console.Clear();
+                Console.CursorVisible = true;
                 }while (!exit);
-
-              
-                
+            
              }
 
 
@@ -66,7 +73,7 @@ namespace Gemometriskafigurer
             switch (shapeType)
             {
                 case ShapeType.Rectangle:
-                    return new Rectangle(length, width);
+                    return new Rectangle(length, width); //
 
                 case ShapeType.Ellipse:
                     return new Ellipse(length, width);
@@ -127,9 +134,9 @@ namespace Gemometriskafigurer
             
         }
 
-        private void ViewShapeDetail(Shape shape)
+        private static void ViewShapeDetail(Shape shape)
         {
-            Console.WriteLine();
+            Console.WriteLine(shape);
 
         }
     }

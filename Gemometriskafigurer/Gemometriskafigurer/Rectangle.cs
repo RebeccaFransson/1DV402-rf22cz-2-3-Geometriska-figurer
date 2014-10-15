@@ -8,12 +8,12 @@ namespace Gemometriskafigurer
 {
     class Rectangle : Shape 
     {
-        public double Area // Räknar ut arean
+        public override double Area // Räknar ut arean
         {
             get { return Length * Width; }
         }
 
-        public double Perimeter // Räknar ut omkretsen
+        public override double Perimeter // Räknar ut omkretsen
         {
             get { return ((2 * Length) + (2 * Width)); }
         }
